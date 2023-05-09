@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <form method="POST" action="/record/hosodonthuoc/new">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="mabacsi">Ma bac si</label>
+                <input type="text" class="form-control" id="mabacsi" name="mabacsi">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="mabenhnhan">Ma benh nhan</label>
+                <input type="text" class="form-control" id="mabenhnhan" name="mabenhnhan">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ngaykedon">Ngay ke don</label>
+            <input type="date" class="form-control" id="ngaykedon" name="ngaykedon">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="maphieukedon">Ma phieu ke don</label>
+                <input type="text" class="form-control" id="maphieukedon" name="maphieukedon" placeholder="latest: {{curMaphieukedon.max}}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="madonthuoc">Ma don thuoc</label>
+                <select id="madonthuoc" class="form-control" name="madonthuoc">
+                    {{#each madonthuoc}}
+                    <option>{{this.Madonthuoc}} - {{this.Tenthuoc}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

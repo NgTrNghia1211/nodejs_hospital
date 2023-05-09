@@ -1,0 +1,37 @@
+<div class="container mt-4 justify-content-center align-items-center">
+    <form method="POST" action="/record/hosoxetnghiem/new">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="mabenhnhan">Ma benh nhan</label>
+                <input type="text" class="form-control" id="mabenhnhan" name="mabenhnhan">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ngayxetnghiem">Ngay xet nghiem</label>
+                <input type="date" class="form-control" id="ngayxetnghiem" name="ngayxetnghiem">
+            </div>
+        </div>
+        <div class="form-row">
+
+            <label for="ketqua">Ket qua</label>
+            <input type="text" class="form-control" id="ketqua" name="ketqua">
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="maphieuxetnghiem">Ma phieu xet nghiem</label>
+                <input type="text" class="form-control" id="maphieuxetnghiem" name="maphieuxetnghiem"
+                    placeholder="latest: {{curMaphieuxetnghiem.max}}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="maloaixetnghiem">Ma xet nghiem</label>
+                <select id="maloaixetnghiem" class="form-control" name="maloaixetnghiem">
+                    {{#each xetnghiem}}
+                    <option>{{this.Maloaixetnghiem}} - {{this.Tenloai}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

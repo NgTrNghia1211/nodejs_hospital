@@ -1,0 +1,49 @@
+<div class="container mt-4">
+    <div class="mt-4">
+        <h3>
+            Tạo nhanh hồ sơ bác sĩ
+        </h3>
+    </div>
+    <form class="mt-4" method="POST" action="/doctor/new">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="fName">Họ</label>
+                <input type="text" class="form-control" id="fName" name="fName" placeholder="Họ">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lName">Tên</label>
+                <input type="text" class="form-control" id="lName" name="lName" placeholder="Tên">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Địa chỉ</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Địa chỉ">
+        </div>
+        <div class="form-group">
+            <label for="birthday">Ngày sinh</label>
+            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="yy-mm-dd" required>
+        </div>
+        <div class="form-group">
+            <label for="sdt">Số điện thoại</label>
+            <input type="text" class="form-control" id="sdt" name="sdt" placeholder="SDT">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="mabacsi">Mã bác sĩ</label>
+                <input type="text" class="form-control" id="mabacsi" name="mabacsi">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="sex">Giới tính</label>
+                <select id="sex" class="form-control" name="sex">
+                    <option selected>M</option>
+                    <option>F</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="makhoa">Mã khoa</label>
+                <input type="text" class="form-control" id="makhoa" name="makhoa">
+            </div>
+            <button type="submit" class="btn btn-primary">Tạo mới</button>
+        </div>
+    </form>
+</div>

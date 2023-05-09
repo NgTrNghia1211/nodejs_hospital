@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="mt-4">
+        <div class="card">
+            <div class="card-body">
+                    <form method="POST" action="/login" class="border-info shadow p-3 rounded" style="width: 450px;">
+                        <h4>Submit Role</h4>
+                        <div class="form-group">
+                            <label for="role">UserRole</label>
+                            <input type="text" class="form-control" id="role" name="role">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password Identified</label>
+                            <input type="text" class="form-control" id="password" name="password">
+                        </div>
+
+                        {{!-- <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password">
+                        </div> --}}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>

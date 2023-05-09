@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="mt-4">
+        <form class="d-flex" method="POST" action="/doctor" novalidate>
+          <input class="form-control me-2" type="search" placeholder="Search Ho or Ten or Makhoa" name="search" aria-label="Search">
+          <button class="btn btn-light" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="mt-4">
+        <div class="row">
+            <div class="col-6">
+                <h2>All Doctor in List</h2>
+            </div>
+            <div class="col-6 d-flex flex-row-reverse">
+                <a href="/doctor/new" class="btn btn-primary">New</a>
+            </div>
+        </div>
+        <table class="table table-hover table-light">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ho</th>
+                    <th scope="col">Ten</th>
+                    
+                    <th scope="col">Ma bac si</th>
+                    <th scope="col">SDT</th>
+                    <th scope="col">Ma khoa</th>
+                    <th scope="col" class="text-end">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each results}}
+                <tr>
+                    <th scope="row">{{sum @index 1}}</th>  
+                    <td>{{this.Ho}}</td>
+                    <td>{{this.Ten}}</td>
+                    
+                    <td>{{this.Mabacsi}}</td>
+                    <td>{{this.SDT}}</td>
+                    <td>{{this.Makhoa}}</td>
+                    <td class="text-end">
+                        <a href="http://localhost:3000/doctor/patient/{{this.Mabacsi}}" type="button" class="btn btn-light btn-small">Bệnh nhân</a>
+                        <a href="http://localhost:3000/doctor/edit/{{this.Mabacsi}}" type="button" class="btn btn-light btn-small">Edit</a>
+                        {{!-- <a href="" type="button" class="btn btn-light btn-small">Delete</a> --}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

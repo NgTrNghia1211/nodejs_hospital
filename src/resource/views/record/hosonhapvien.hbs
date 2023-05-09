@@ -1,0 +1,31 @@
+<div class="container mt-4 justify-content-center align-items-center">
+    <form method="POST" action="/record/hosonhapvien/new">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="mabenhnhan">Ma benh nhan</label>
+                <input type="text" class="form-control" id="mabenhnhan" name="mabenhnhan">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ngaynhapvien">Ngay nhap vien</label>
+                <input type="date" class="form-control" id="ngaynhapvien" name="ngaynhapvien">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="manhapvien">Ma nhap vien</label>
+                <input type="text" class="form-control" id="manhapvien" name="manhapvien"
+                    placeholder="latest: {{curManhapvien.max}}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="maphong">Ma phong</label>
+                <select id="maphong" class="form-control" name="maphong">
+                    {{#each phong}}
+                    <option>{{this.Maphong}} - status: {{this.Tinhtrang}}, type: {{this.Loaiphong}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+<div class="row mr-4">
+    <div class="mt-4 col-lg-9">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Thông tin Ca trực
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ma phong</th>
+                                <th scope="col">Thoi gian bat dau</th>
+                                <th scope="col">Thoi gian ket thuc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each catruc}}
+                            <tr>
+                                <th scope="row">{{sum @index 1}}</th>
+                                <td>{{this.Maphong}}</td>
+                                <td>{{this.Thoigianbatdau}}</td>
+                                <td>{{this.Thoigianketthuc}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 col-lg-3">
+        <div class="card" style="width: 18rem;">
+
+            {{#each thongtinyta}}
+            <div class="card-body">
+                <img src="\img\male_man_people_person_avatar_white_tone_icon_159363.png" class="img-thumbnail" alt="">
+                <h5 class="card-title mt-4">{{this.Ho}} {{this.Ten}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{this.Mayta}}</h6>
+                <p class="card-text">SDT liên lạc: {{this.SDT}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

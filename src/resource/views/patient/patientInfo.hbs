@@ -1,0 +1,283 @@
+{{#if thongtinbenhnhan}}
+<div class="row mr-4">
+    <div class="mt-4 col-lg-9">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Đơn thuốc
+                        </button>
+                        <button class="btn btn-light float-right"><a href="/record/hosodonthuoc/new"
+                                class="text-primary">+ New</a> </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ma don</th>
+                                <th scope="col">Ten thuoc</th>
+                                <th scope="col">So luong</th>
+                                <th scope="col">Ngay ke don</th>
+                                <th scope="col">Bac si ke don</th>
+                                {{!-- <th scope="col" class="text-end">Action</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each donthuoc}}
+                            <tr>
+                                <th scope="row">{{sum @index 1}}</th>
+                                <td>{{this.Madonthuoc}}</td>
+                                <td>{{this.Tenthuoc}}</td>
+                                <td>{{this.Soluong}}</td>
+                                <td>{{this.Ngaykedon}}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#exampleModal{{this.Mabacsi}}" style="width: 150px;">
+                                        {{this.Mabacsi}}
+                                    </button>
+                                </td>
+                                {{!-- <td><a href="/doctor/{{this.Mabacsi}}">{{this.Mabacsi}}</a></td> --}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                            Phiếu xét nghiệm
+                        </button>
+                        <button class="btn btn-light float-right"><a href="/record/hosoxetnghiem/new"
+                                class="text-primary">+ New</a> </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <table class="table table-hover table-light">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Ma phieu xet nghiem</th>
+                                    <th scope="col">Ma loai xet nghiem</th>
+                                    <th scope="col">Ket qua</th>
+                                    <th scope="col">Ngay xet nghiem</th>
+                                    {{!-- <th scope="col" class="text-end">Action</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each phieuxetnghiem}}
+                                <tr>
+                                    <th scope="row">{{sum @index 1}}</th>
+                                    <td>{{this.Maphieuxetnghiem}}</td>
+                                    <td>{{this.Maloaixetnghiem}}</td>
+                                    <td>{{this.Ketqua}}</td>
+                                    <td>{{this.Ngayxetnghiem}}</td>
+
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="false" aria-controls="collapseThree">
+                            Hồ sơ nhập viện
+                        </button>
+                        <button class="btn btn-light float-right"><a href="/record/hosonhapvien/new"
+                                class="text-primary">+ New</a> </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ma nhap vien</th>
+                                <th scope="col">Ma phong</th>
+                                <th scope="col">Ngay nhap vien</th>
+                                <th scope="col">Ngay xuat vien</th>
+                                {{!-- <th scope="col">Thong tin y ta</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each hosonhapvien}}
+                            <tr>
+                                <th scope="row">{{sum @index 1}}</th>
+                                <td>{{this.Manhapvien}}</td>
+                                <td>{{this.Maphong}}</td>
+                                <td>{{this.Ngaynhapvien}}</td>
+                                <td>
+                                    <form class="form-inline" method="POST"
+                                        action="/record/hosonhapvien/ngayxuatvien/{{this.Manhapvien}}">
+                                        <div class="row">
+                                            {{#if this.Ngayxuatvien}}
+                                            <input type="text" class="form-control mb-2 mr-sm-2" id="ngayxuatvien"
+                                                value="{{this.Ngayxuatvien}}" name="ngayxuatvien">
+                                            {{else}}
+                                            <input type="text" class="form-control mb-2 mr-sm-2" id="ngayxuatvien"
+                                                value="{{this.Ngayxuatvien}}" name="ngayxuatvien">
+                                            {{/if}}
+                                            <button type="submit" class="btn btn-primary mb-2">Lưu</button>
+                                            <input type="text" class="form-control mb-2 mr-sm-2 invisible" id="mabenhnhan"
+                                                value="{{this.Mabenhnhan}}" name="mabenhnhan" readonly>
+                                        </div>
+                                    </form>
+                                </td>
+                                {{!-- <td><a href="/nurse/{{this.Mayta}}">{{this.Mayta}}</a></td> --}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour"
+                            aria-expanded="true" aria-controls="collapseFour">
+                            Hồ sơ khám
+                        </button>
+                        <button class="btn btn-light float-right"><a href="/record/hosokham/new" class="text-primary">+
+                                New</a> </button>
+                    </h5>
+                </div>
+
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ma ho so</th>
+                                <th scope="col">Ma benh</th>
+                                <th scope="col">Bac si kham</th>
+                                {{!-- <th scope="col" class="text-end">Action</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each hosokham}}
+                            <tr>
+                                <th scope="row">{{sum @index 1}}</th>
+                                <td>{{this.Mahoso}}</td>
+                                <td>{{this.Mabenh}}</td>
+                                {{!-- <td>{{this.Mabacsi}}</td> --}}
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#Modal{{this.Mabacsi}}" style="width: 150px;">
+                                        {{this.Mabacsi}}
+                                    </button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 col-lg-3">
+        <div class="card" style="width: 18rem;">
+
+            {{#each thongtinbenhnhan}}
+            <div class="card-body">
+                <img src="\img\403023_avatar_user_woman_female_person_icon.png" class="img-thumbnail" alt="">
+                <h5 class="card-title mt-4">{{this.Ho}} {{this.Ten}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{this.Mabenhnhan}}</h6>
+                <p class="card-text">{{this.Ngaysinh}}</p>
+                <button class="btn btn-light float-left"><a href="/patient/edit/{{this.Mabenhnhan}}"
+                        class="text-primary"> >Edit</a> </button>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{#each donthuoc}}
+<div class="modal fade" id="exampleModal{{this.Mabacsi}}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{this.Ho}} {{this.Ten}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card" style="width: auto;">
+                    <img class="card-img-top"
+                        src="https://i.pinimg.com/564x/89/d0/b1/89d0b1ec37c1f5fd539c7669c3db70a2.jpg"
+                        alt="Card image cap" style="scale: 80%;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.Tenkhoa}}</h5>
+                        <p class="card-text">SDT: {{this.SDT}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+{{#each hosokham}}
+<div class="modal fade" id="Modal{{this.Mabacsi}}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{this.Ho}} {{this.Ten}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card" style="width: auto;">
+                    <img class="card-img-top"
+                        src="https://i.pinimg.com/564x/89/d0/b1/89d0b1ec37c1f5fd539c7669c3db70a2.jpg"
+                        alt="Card image cap" style="scale: 80%;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.Tenkhoa}}</h5>
+                        <p class="card-text">SDT: {{this.SDT}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+{{else}}
+<div class="mt-4">
+    <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="text-center">
+            <h1 class="display-1 fw-bold">404</h1>
+            <p class="fs-3"> <span class="text-danger">Opps!</span> NOT FOUND</p>
+            <p class="lead">
+                Check again your code
+            </p>
+            <a href="/" class="btn btn-primary">Go Home</a>
+        </div>
+    </div>
+</div>
+{{/if}}
