@@ -19,3 +19,6 @@
 * F8 - NodeJs
 * https://expressjs.com/
 * https://handlebarsjs.com/
+
+## Run
+* Terminal -> npm start
